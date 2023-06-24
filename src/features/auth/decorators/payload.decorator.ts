@@ -8,5 +8,5 @@ export const UserPayload = createParamDecorator(
     const { user } = request;
 
     return input ? user?.[input] : user;
-  },
+  }
 );

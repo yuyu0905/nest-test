@@ -59,7 +59,7 @@ export class ImageController {
   @UseInterceptors(FileInterceptor('file'))
   async postUploadImage(
     @UploadedFile() file: Express.Multer.File,
-    @Res() res: Response,
+    @Res() res: Response
   ) {
     // 檢查檔案格式及大小
     const validatedRes = await this.imageService.validateImageFile(file);

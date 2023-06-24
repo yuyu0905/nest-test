@@ -7,7 +7,7 @@ import * as bcrypt from 'bcrypt';
 export class AuthService {
   constructor(
     private readonly userService: UserService,
-    private readonly jwtService: JwtService,
+    private readonly jwtService: JwtService
   ) {}
 
   /**

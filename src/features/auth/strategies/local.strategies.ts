@@ -21,7 +21,7 @@ export class LocalStrategy extends PassportStrategy(Strategy) {
     // 先執行mima驗證，所以這裡會呼叫AuthService的validateUser方法
     const validate_result = await this.authService.validateUser(
       user_account,
-      user_mima,
+      user_mima
     );
     // 未通過驗證，拋出例外
     if (!validate_result.user_state) {

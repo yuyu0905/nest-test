@@ -11,7 +11,7 @@ import { ApiBody, ApiOperation, ApiTags } from '@nestjs/swagger';
 export class AuthController {
   constructor(
     private readonly userService: UserService,
-    private readonly authService: AuthService,
+    private readonly authService: AuthService
   ) {}
 
   @UseGuards(LocalGuard)
@@ -32,9 +32,7 @@ export class AuthController {
     const user_info = Object.assign(
       {},
       payload,
-      this.authService.generateJwt(
-        payload as unknown as Record<string, string>,
-      ),
+      this.authService.generateJwt(payload as unknown as Record<string, string>)
     );
     return user_info;
   }

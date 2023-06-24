@@ -20,7 +20,7 @@ async function bootstrap() {
   // 取得允許cors的相關網域
   const frontend_domain = app.get(ConfigService).get('FRONTEND_DOMAIN');
   const pr_frontend_domain = new RegExp(
-    app.get(ConfigService).get('PR_FRONTEND_DOMAIN'),
+    app.get(ConfigService).get('PR_FRONTEND_DOMAIN')
   );
   const custom_frontend_domain = app
     .get(ConfigService)

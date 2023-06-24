@@ -8,7 +8,7 @@ import { CreateTableDto } from './dto/create-table.dto';
 export class TableService {
   constructor(
     @InjectModel(TableMain.name)
-    private readonly tableMainModel: Model<TableMainDocument>,
+    private readonly tableMainModel: Model<TableMainDocument>
   ) {}
 
   public async createTable(dto: CreateTableDto) {
