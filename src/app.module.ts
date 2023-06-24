@@ -14,7 +14,7 @@ import adminConfig from './configs/admin.config';
 import { AuthModule } from './features/auth';
 import { UserModule } from './features/user';
 import { TableModule } from './features/table';
-import { ImageModule } from './features/image';
+import { ImageModule } from './features/image'
 
 @Module({
   imports: [
