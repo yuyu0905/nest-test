@@ -15,6 +15,16 @@ import { AuthModule } from './features/auth';
 import { UserModule } from './features/user';
 import { TableModule } from './features/table';
 import { ImageModule } from './features/image';
+import { ActivitiesModule } from './features/activities';
+import { ProductModule } from './features/product';
+import { OrderSocketModule } from './features/order-socket';
+import { OrderDetailModule } from './features/order-detail';
+import { OrderModule } from './features/order';
+import { ReservationModule } from './features/reservation';
+import { ManageProductModule } from './features/manage/manage-product';
+import { FoodItemsModule } from './features/manage/food-items';
+import { CheckOutModule } from './features/check-out';
+import { ManageActivitiesModule } from './features/manage/manage-activities/manage-activities.module';
 
 @Module({
   imports: [
@@ -33,9 +43,18 @@ import { ImageModule } from './features/image';
     AuthModule,
     UserModule,
     TableModule,
+    ProductModule,
+    ActivitiesModule,
+    ReservationModule,
     ImageModule,
+    OrderSocketModule,
+    OrderDetailModule,
+    OrderModule,
+    ManageProductModule,
+    FoodItemsModule,
+    CheckOutModule,
+    ManageActivitiesModule,
   ],
-  controllers: [],
   providers: [
     // * DTO 驗證
     GLOBAL_VALIDATION_PIPE,
