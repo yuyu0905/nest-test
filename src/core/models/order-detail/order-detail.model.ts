@@ -3,13 +3,13 @@ import { Document, Types } from 'mongoose';
 import { Order } from '../order/order.model';
 import { ProductDetail } from '../product-detail/product-detail.model';
 import { User } from '../user';
-import { OrderDetailStatus } from './order-detail.type';
 
 export type OrderDetailDocument = OrderDetail & Document;
 
 @Schema({
   timestamps: {
     createdAt: 'create_time',
+    updatedAt: 'update_time',
   },
   versionKey: false,
 })
@@ -26,7 +26,7 @@ export class OrderDetail {
     ref: 'ProductDetail',
     required: true,
   })
-  product_detail: ProductDetail;
+  product_detail: ProductDetail[];
 
   @Prop({
     type: Number,
@@ -34,12 +34,6 @@ export class OrderDetail {
     default: 0,
   })
   total: number;
-
-  @Prop({
-    required: true,
-    enum: Object.values(OrderDetailStatus),
-  })
-  status: OrderDetailStatus;
 
   @Prop({
     type: Types.ObjectId,
@@ -50,6 +44,9 @@ export class OrderDetail {
 
   @Prop()
   create_time: Date;
+
+  @Prop()
+  update_time: Date;
 }
 
 const OrderDetailSchema = SchemaFactory.createForClass(OrderDetail);
