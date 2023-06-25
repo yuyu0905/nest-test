@@ -50,9 +50,9 @@ import { ManageActivitiesModule } from './features/manage/manage-activities/mana
     OrderSocketModule,
     OrderDetailModule,
     OrderModule,
-    ManageProductModule,
     FoodItemsModule,
     CheckOutModule,
+    ManageProductModule,
     ManageActivitiesModule,
   ],
   providers: [
