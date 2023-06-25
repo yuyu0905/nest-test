@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '18.16.0'
       - run: npm install
       - run: npm run lint
   # test:
@@ -20,6 +20,39 @@ jobs:
   #     - uses: actions/checkout@v3
   #     - uses: actions/setup-node@v3
   #       with:
-  #         node-version: '18'
+  #         node-version: '18.16.0'
   #     - run: npm install
   #     - run: npm run test
+  build:
+    needs:
+      - lint
+      # - test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.16.0'
+      - run: npm install
+      - run: npm run build
+      - run: |
+          git config --global user.name 'yuyu0905'
+          git config --global user.email '86718154+yuyu0905@users.noreply.github.com'
+          git status
+          git checkout -b deploy
+          git add --all
+          git commit -m "deploy"
+          git push origin deploy -f
+  deploy:
+    needs:
+      - lint
+      # - test
+      - build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy
+        run: |
+          curl -X POST -H "Authorization: Bearer ${{ secrets.RENDER_TOKEN }}" \
+          -H "Content-Type: application/json" \
+          -d '{}' \
+          ${{ secrets.RENDER_DEPLOY_HOOK }}
