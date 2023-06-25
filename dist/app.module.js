@@ -18,6 +18,16 @@ const auth_1 = require("./features/auth");
 const user_1 = require("./features/user");
 const table_1 = require("./features/table");
 const image_1 = require("./features/image");
+const activities_1 = require("./features/activities");
+const product_1 = require("./features/product");
+const order_socket_1 = require("./features/order-socket");
+const order_detail_1 = require("./features/order-detail");
+const order_1 = require("./features/order");
+const reservation_1 = require("./features/reservation");
+const manage_product_1 = require("./features/manage/manage-product");
+const food_items_1 = require("./features/manage/food-items");
+const check_out_1 = require("./features/check-out");
+const manage_activities_module_1 = require("./features/manage/manage-activities/manage-activities.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -37,9 +47,18 @@ AppModule = __decorate([
             auth_1.AuthModule,
             user_1.UserModule,
             table_1.TableModule,
+            product_1.ProductModule,
+            activities_1.ActivitiesModule,
+            reservation_1.ReservationModule,
+            order_socket_1.OrderSocketModule,
+            order_detail_1.OrderDetailModule,
+            order_1.OrderModule,
+            food_items_1.FoodItemsModule,
+            check_out_1.CheckOutModule,
             image_1.ImageModule,
+            manage_product_1.ManageProductModule,
+            manage_activities_module_1.ManageActivitiesModule,
         ],
-        controllers: [],
         providers: [
             providers_1.GLOBAL_VALIDATION_PIPE,
             providers_1.GLOBAL_RESPONSE_INTERCEPTOR,
