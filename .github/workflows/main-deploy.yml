@@ -37,11 +37,24 @@ jobs:
           node-version: '18'
       - run: npm install
       - run: npm run build
+  pushDist:
+    needs:
+      - lint
+      # - test
+      - build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.COMMIT_TOKEN }}
+          publish_dir: ./dist
+
   deploy:
     needs:
       - lint
       # - test
       - build
+      - pushDist
     runs-on: ubuntu-latest
     steps:
       - name: Deploy
