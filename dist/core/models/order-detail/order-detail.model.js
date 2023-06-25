@@ -13,9 +13,7 @@ exports.OrderDetailSchema = exports.OrderDetail = void 0;
 const mongoose_1 = require("@nestjs/mongoose");
 const mongoose_2 = require("mongoose");
 const order_model_1 = require("../order/order.model");
-const product_detail_model_1 = require("../product-detail/product-detail.model");
 const user_1 = require("../user");
-const order_detail_type_1 = require("./order-detail.type");
 let OrderDetail = class OrderDetail {
 };
 __decorate([
@@ -32,7 +30,7 @@ __decorate([
         ref: 'ProductDetail',
         required: true,
     }),
-    __metadata("design:type", product_detail_model_1.ProductDetail)
+    __metadata("design:type", Array)
 ], OrderDetail.prototype, "product_detail", void 0);
 __decorate([
     (0, mongoose_1.Prop)({
@@ -42,13 +40,6 @@ __decorate([
     }),
     __metadata("design:type", Number)
 ], OrderDetail.prototype, "total", void 0);
-__decorate([
-    (0, mongoose_1.Prop)({
-        required: true,
-        enum: Object.values(order_detail_type_1.OrderDetailStatus),
-    }),
-    __metadata("design:type", String)
-], OrderDetail.prototype, "status", void 0);
 __decorate([
     (0, mongoose_1.Prop)({
         type: mongoose_2.Types.ObjectId,
@@ -61,10 +52,15 @@ __decorate([
     (0, mongoose_1.Prop)(),
     __metadata("design:type", Date)
 ], OrderDetail.prototype, "create_time", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", Date)
+], OrderDetail.prototype, "update_time", void 0);
 OrderDetail = __decorate([
     (0, mongoose_1.Schema)({
         timestamps: {
             createdAt: 'create_time',
+            updatedAt: 'update_time',
         },
         versionKey: false,
     })
