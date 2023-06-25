@@ -4,6 +4,7 @@ on:
     branches:
       - main
       - deploy
+      - develop
 jobs:
   lint:
     runs-on: ubuntu-latest
